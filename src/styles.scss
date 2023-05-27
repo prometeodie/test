@@ -1,0 +1,14 @@
+@import './app/scss/variables.scss';
+
+*{
+  margin: 0;
+  padding: auto;
+  box-sizing: content-box;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: $body-bc;
+  color: $fonts-color;
+}

@@ -1,0 +1,6 @@
+<section class="map-section-container">
+  <mat-spinner *ngIf="!isMapLoaded; else mapContainer"></mat-spinner>
+  <ng-template #mapContainer>
+    <div class="map-section__map" #map></div>
+  </ng-template>
+</section>

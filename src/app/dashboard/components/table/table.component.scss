@@ -1,0 +1,12 @@
+.table{
+  padding: 0 2rem 5rem 2rem;
+  &__last-column{
+    width: 0.5rem;
+  }
+}
+
+.table__btn-container{
+  display: flex;
+  justify-content: end;
+}
+

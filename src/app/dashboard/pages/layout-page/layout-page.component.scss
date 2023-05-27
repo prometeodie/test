@@ -1,0 +1,85 @@
+@import '../../../scss/variables.scss';
+
+
+.sidenav-container,
+  .sidenav-container__header-title,
+  .sidenav-container__toolbar-item{
+    color: $fonts-color;
+  }
+  .section-container,
+  .sidenav-container__toolbar-item{
+    display: flex;
+  }
+
+  .section-container,
+  .sidenav-container,
+  .header{
+    width: 100%;
+  }
+
+  .section-container,
+  .sidenav-container{
+    height: 100vh;
+  }
+
+  .section-container,
+  .btn-input-container{
+  position: relative;
+ }
+
+ .btn-input-container__search-bar,
+ .sidenav-container{
+  position: absolute;
+ }
+
+  .section-container{
+  flex-direction: column;
+ }
+
+.header{
+  position: fixed;
+  top:0;
+  z-index: 3;
+}
+
+.btn-input-container{
+
+  &__search-bar{
+    left: calc( 50% - 8.5rem );
+    top: 0.5rem;
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+    width: 17rem;
+    border-radius: 5px;
+    background-color: rgba(184, 184, 184, 0.9);
+    color:$fonts-color;
+    margin-bottom: 5px;
+  }
+
+}
+
+.sidenav-container{
+  background-color: $body-bc;
+  padding-top: 4rem;
+  &__toolbar{
+    width:17rem;
+    background-color: $elements-bc;
+    }
+
+    &__toolbar-header{
+      background-color: $menu-header-bc;
+    }
+
+    &__header-title{
+      flex:1 1 auto;
+    }
+
+    &__toolbar-item{
+      align-items: center;
+      &-label{
+        margin-left: 1.5rem;
+      }
+    }
+  }
+

@@ -1,0 +1,116 @@
+@import '../../../scss/variables.scss';
+
+.form-section,
+.form-section__card,
+.form-section__inputs-container{
+  width: 100%;
+}
+.form-section__form,
+.form-section__inputs-container,
+.form-section__error-name,
+.fancy-file+label,
+.fancy-file__btn{
+  display: flex;
+}
+
+.form-section__inputs-group,
+.fancy-file__name{
+  width: 50%;
+}
+
+.fancy-btn,
+.fancy-file__name{
+  padding: 0.75rem 0.5rem 0.75rem 0.5rem;
+}
+
+.form-section__inputs,
+.fancy-file__name{
+  background-color: rgba($color: #999, $alpha: 0.2);
+}
+
+.form-section{
+  position: relative;
+  padding: 0 2rem;
+
+  &__spinner{
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+  }
+    &__form{
+      flex-direction: column;
+      align-items: end;
+    }
+
+    &__title{
+      padding: 0.5rem 0 0 0.5rem;
+    }
+
+    &__inputs-group{
+      padding: 1rem 0 1rem 2rem;
+    }
+
+    &__inputs{
+      width: 80%;
+      color: $fonts-color;
+      font-size: larger;
+      padding: 1rem 0.5rem 0.5rem 0.5rem;
+      margin-bottom: 0.8rem;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    &__errors{
+      color: $form-error-color;
+    }
+
+    &__name{
+      padding-right: 0.5rem;
+    }
+}
+
+.fancy-file{
+  display: none;
+}
+
+.fancy-file+label{
+  width: 80%;
+}
+
+.fancy-file__name{
+  flex:1;
+  border-radius: 0 5px 5px 0;
+
+}
+.fancy-file__name__text{
+   display: block;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+  }
+
+.fancy-file__btn{
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px 0 0 5px;
+  width: 40%;
+  background-color:$choose-file-btn-bc;
+  cursor: pointer;
+
+  &__text{
+    white-space: nowrap;
+    padding: 0 0.2rem;
+  }
+
+  &:hover{
+    background-color:rgba($choose-file-btn-bc, $alpha: 0.5) ;
+  }
+}
+
+.form-btn{
+  margin: 0.8rem;
+  background-color: $choose-file-btn-bc;
+}

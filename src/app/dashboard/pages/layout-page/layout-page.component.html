@@ -1,0 +1,42 @@
+<section class="section-container">
+  <!-- header -->
+  <component-header class="header"></component-header>
+  <!-- side-nav -->
+  <mat-sidenav-container class="sidenav-container">
+    <div class="btn-input-container">
+      <button mat-icon-button class="open-menu" (click)="sidenav.toggle()">
+        <mat-icon fontIcon="menu"></mat-icon>
+      </button>
+        <!-- input to find the closest warehouse -->
+        <input type="text" #inpuField
+        *ngIf="currentUserRole === 'ADMIN'"
+               class="btn-input-container__search-bar"
+              placeholder="(Addres) Search for The Closest Warehouse"
+              (change)="navigateToMap()">
+    </div>
+    <mat-sidenav #sidenav mode="push" class="sidenav-container__toolbar" >
+
+      <mat-toolbar class="sidenav-container__toolbar-header">
+
+          <span class="sidenav-container__header-title spacer">Menu</span>
+          <button mat-icon-button (click)="sidenav.toggle()"><mat-icon fontIcon="menu"></mat-icon></button>
+
+      </mat-toolbar>
+      <mat-nav-list>
+        <!-- warehouse List button -->
+        <mat-list-item
+        routerLink="/dashboard/warehouse-list"
+        (click)="[sidenav.toggle(),resetInput()]">
+        <div class="sidenav-container__toolbar-item" >
+          <mat-icon matListItemIcon >home</mat-icon>
+          <span class="sidenav-container__toolbar-item-label">warehouse List</span>
+        </div>
+        </mat-list-item>
+
+      </mat-nav-list>
+    </mat-sidenav>
+    <!-- body -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-container>
+  <shared-footer></shared-footer>
+</section>

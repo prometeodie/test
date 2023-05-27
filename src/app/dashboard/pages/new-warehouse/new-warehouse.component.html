@@ -1,0 +1,95 @@
+<section class="form-section">
+  <mat-card class="form-section__card">
+    <mat-spinner class="form-section__spinner" *ngIf="myForm.pending"></mat-spinner>
+    <div></div>
+      <h1 class="form-section__title">New Warehouse</h1>
+      <form [formGroup]="myForm" class="form-section__form" (ngSubmit)=" addNewWarehouse()">
+      <div class="form-section__inputs-container">
+      <div class="form-section__inputs-group">
+      <!-- NAME -->
+            <div class="form-section__error-name">
+              <h3 class="form-section__name">Name*</h3>
+              <span class="form-section__errors" *ngIf="isValidField('name')">
+                {{showError('name')}}
+              </span>
+           </div>
+            <input matInput type="text"
+                   placeholder="Example"
+                   formControlName="name"
+                   class="form-section__inputs">
+    <!-- ADDRES -->
+            <div class="form-section__error-name">
+              <h3 class="form-section__name">Addres*</h3>
+              <span class="form-section__errors" *ngIf="isValidField('addres')">
+              {{showError( 'addres')}}
+              </span>
+           </div>
+            <input matInput type="text"
+                   placeholder="Rodriguez 1050, Tandil"
+                   #addres
+                   (focus)="onFocusInput('addres')"
+                   formControlName="addres"
+                   (change)="autocompleteFormFields()"
+                   class="form-section__inputs">
+    <!-- CODE -->
+            <div class="form-section__error-name">
+              <h3 class="form-section__name">Code*</h3>
+              <span class="form-section__errors" *ngIf="isValidField('code')">
+                {{showError( 'code')}}
+              </span>
+          </div>
+            <input matInput type="number"
+                  placeholder="2022"
+                  formControlName="code"
+                  class="form-section__inputs">
+      </div>
+
+      <!-- COUNTRY -->
+      <div class=form-section__inputs-group>
+        <div class="form-section__error-name">
+              <h3 class="form-section__name">Country</h3>
+              <span class="form-section__errors" *ngIf="isValidField('country')">
+                {{showError( 'country')}}
+              </span>
+           </div>
+            <input matInput type="text"
+                   placeholder="Argentina"
+                   formControlName="country"
+                   class="form-section__inputs">
+      <!-- ZIP -->
+            <div>
+               <h3 class="form-section__name">Zip</h3>
+               <span class="form-section__errors" *ngIf="isValidField('zip')">
+                {{showError( 'zip')}}
+               </span>
+            </div>
+            <input matInput type="number"
+                   placeholder="7000"
+                   formControlName="zip"
+                   class="form-section__inputs">
+      <!-- LIST -->
+            <h3 class="form-section__name">Warehouse List (Excel)</h3>
+            <div>
+              <input type="file" id="file"
+                     #file
+                    class="fancy-file"
+                    accept=".xlsx, .xls"
+                    (change)="readExcel($event)"
+                    formControlName="list">
+              <!-- Style input file       -->
+              <label for="file">
+                <span class="fancy-file__btn">
+                  <span class="fancy-file__btn__text">Select List</span>
+                </span>
+                <span class="fancy-file__name">
+                  <span class="fancy-file__name__text">{{fancyFileText}}</span>
+                </span>
+                <!-- Style input file done-->
+              </label>
+            </div>
+          </div>
+        </div>
+        <button mat-raised-button class="form-btn" type="submit">Save</button>
+        </form>
+        </mat-card>
+</section>
