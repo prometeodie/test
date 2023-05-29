@@ -1,6 +1,7 @@
 <div class="mat-elevation-z8 table">
+  <div class="empty-table" *ngIf="dataSource.data.length === 0; else table">EMPTY...</div >
+    <ng-template #table>
   <table mat-table [dataSource]="dataSource">
-
     <!-- Code Column -->
     <ng-container matColumnDef="code">
       <th mat-header-cell *matHeaderCellDef> Code </th>
@@ -15,7 +16,7 @@
 
     <!-- Addres Column -->
     <ng-container matColumnDef="addres">
-      <th mat-header-cell *matHeaderCellDef> addres </th>
+      <th mat-header-cell *matHeaderCellDef> Addres </th>
       <td mat-cell *matCellDef="let element"> {{element.addres}} </td>
     </ng-container>
 
@@ -57,12 +58,14 @@
           </button>
         </div>
         </td>
-    </ng-container>
-
+      </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
   </table>
+</ng-template>
 
   <mat-paginator [pageSizeOptions]="[5, 10, 15]"
                  showFirstLastButtons

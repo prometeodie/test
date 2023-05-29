@@ -85,6 +85,7 @@ export class MapComponent implements  OnInit,OnDestroy  {
   closestWarehouse(location:LatLng, warehouses:Warehouse[]){
 
     const{lat, lng} = location;
+
     if(lat === 0 && lng === 0) return;
       const warehousesLocation:LatLng[] = warehouses.map(warehouses=>{return warehouses.latLng});
 
@@ -167,6 +168,10 @@ export class MapComponent implements  OnInit,OnDestroy  {
   }
 
   polyline(origin:CenterAddres, destination:FitWarehouses){
+    if(!destination){
+      const text = "We cannot found a route for this location"
+      this.mapsService.menssageScreenPopUp(text, 'error', 2000)
+      return}
     let request ={
       origin: origin.latLng,
       destination: destination.latLng,

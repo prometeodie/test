@@ -11,9 +11,11 @@ export const hasRoleGuard: CanActivateFn = (route, state) => {
   const userRole = authService.currentUser()?.roles;
 
 
+  console.log('role',userRole!)
     if(authService.currentUser() && allowedRoutes.includes(userRole!)){
       return true;
     }
+
 
     router.navigateByUrl('dashboard/warehouse-list');
     return false;

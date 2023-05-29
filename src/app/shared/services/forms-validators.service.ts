@@ -22,7 +22,6 @@ export class FormsValidatorsService {
 
   showError(form: FormGroup, field: string):string | null{
     if (!form.contains(field)) return null;
-
     const errors = form.get(field)!.errors || {};
 
     const errorMenssages:any = {
@@ -37,7 +36,6 @@ export class FormsValidatorsService {
     for (const key of Object.keys(errors)) {
         return errorMenssages[key];
     }
-
     return null;
   }
 
@@ -57,11 +55,8 @@ export class FormsValidatorsService {
       map(warehouses => {
         const isValid = warehouses.map(warehouse=>{ return warehouse.code}).includes(control.value);
         return (!isValid)? null : {duplicateCode:true};
-      })
-     )
-  }}
-
-
-
+      }))
+   }
   }
+}
 

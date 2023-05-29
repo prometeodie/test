@@ -64,7 +64,7 @@ export class NewWarehouseComponent implements OnDestroy {
 
   addNewWarehouse():void{
     this.myForm.markAllAsTouched();
-    if (this.myForm.invalid) return;
+    if (this.myForm.invalid || !this.fvService.googleResponseOK()) {return;};
 
     Swal.fire({
       title: 'Do you want to save a new Warehouse?',
@@ -78,9 +78,12 @@ export class NewWarehouseComponent implements OnDestroy {
       if (result.isConfirmed) {
         const warehouse: Warehouse = this.currentWarehouse;
         warehouse.list = this.list;
-        this.dashboardService.PostNewWarehouse(warehouse).subscribe();
-        this.myForm.reset()
-        this.router.navigateByUrl('dashboard/warehouse-list');
+        this.dashboardService.PostNewWarehouse(warehouse).subscribe(
+          resp=>{
+            this.myForm.reset()
+            this.router.navigateByUrl('dashboard/warehouse-list');
+          }
+        );
       }
     })
 

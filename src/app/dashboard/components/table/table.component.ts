@@ -16,10 +16,8 @@ import { Subscription } from 'rxjs';
 })
 export class TableComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  private dashboardService = inject(DashboardService)
+  private dashboardService = inject(DashboardService);
   private warehousesSubscription: Subscription[] = [];
-
-
 
   displayedColumns: string[] = ['code','name','addres','country','zip','actions'];
   dataSource = new MatTableDataSource<Warehouse>([]);

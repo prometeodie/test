@@ -69,6 +69,8 @@
                    class="form-section__inputs">
       <!-- LIST -->
             <h3 class="form-section__name">Warehouse List (Excel)</h3>
+            <span>{{myForm.get('addres')?.errors | json}}</span>
+            <span>{{myForm.invalid | json}}</span>
             <div>
               <input type="file" id="file"
                      #file
@@ -89,7 +91,7 @@
             </div>
           </div>
         </div>
-        <button mat-raised-button class="form-btn" type="submit">Save</button>
+        <button mat-raised-button class="form-btn"  type="submit">Save</button>
         </form>
         </mat-card>
 </section>

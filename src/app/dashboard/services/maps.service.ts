@@ -17,7 +17,6 @@ export class MapsService {
   private _place$ = new BehaviorSubject<CenterAddres>({ latLng:{lat:0,lng:0}, addresTitle:'' });
   public _AutocompleteResponse = signal<boolean>(false);
 
-
   private get place$() {
     return this._place$;
   }

@@ -54,7 +54,7 @@ export class LayoutPageComponent implements   AfterViewInit, OnDestroy{
   }
 
   resetInput(){
-    this.inpuField.nativeElement.value ='';
+    if(this.inpuField) this.inpuField.nativeElement.value ='';
   }
 
 
